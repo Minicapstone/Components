@@ -5,9 +5,9 @@ const DropdownOption = ({ label, onClick }) => {
   return (
     <li
       key={label}
-      className="px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-gray-100"
-      onClick={onClick} // Call the onClick function passed as a prop
-    >
+      className={`px-4 py-2 text-sm text-center cursor-pointer rounded-lg 
+      ${label === "Update" ? "text-blue hover:bg-blue hover:text-white" : label === "Delete" ? "text-red hover:bg-red hover:text-white" :" "}`}
+      onClick={onClick}>
       {label}
     </li>
   );
@@ -28,14 +28,13 @@ const Dropdown = ({ options, onSelect }) => {
   return (
     <div className="relative">
       <button
-        className="bg-white text-gray-600 font-semibold py-2 px-4 rounded flex items-center w-full focus:outline-none"
-        onClick={toggleDropdown}
-      >
-        <BsThreeDots className="text-4xl" />
+        className="bg-white text-black font-semibold py-2 px-4 rounded flex items-center w-full focus:outline-none"
+        onClick={toggleDropdown}>
+        <BsThreeDots className="text-4xl"/>
       </button>
 
       {isOpen && (
-        <ul className="absolute w-fit rounded-md shadow-lg bg-gray ring-1 ring-black ring-opacity-5 z-10 font-semibold">
+        <ul className="relative w-fit rounded-md shadow-lg bg-white ring-1 bottom-2 ring-black ring-opacity-5 z-10 font-semibold user-menu">
           {options.map((option) => (
             <DropdownOption
               key={option.label}

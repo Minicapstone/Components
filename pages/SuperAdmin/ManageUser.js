@@ -110,6 +110,7 @@ const UserListSuperAdmin = () => {
     { label: "Delete", onClick: () => handleDelete(studentNumber)},
   ];
   
+  
 
   return (
     <div className="px-3">
@@ -164,7 +165,7 @@ const UserListSuperAdmin = () => {
             <th className="px-5 py-4">Middlename</th>
             <th className="px-5 py-4">Course</th>
             <th className="px-5 py-4">Email</th>
-            <th className="px-5 py-4 text">Action</th>
+            <th className="px-5 py-4">Action</th>
           </tr>
         </thead>
 
@@ -177,7 +178,7 @@ const UserListSuperAdmin = () => {
               <td className="px-5 py-2">{item.middlename}</td>
               <td className="px-5 py-2">{item.course}</td>
               <td className="px-5 py-2">{item.email}</td>
-              <td className="px-5 py-2">
+              <td className="px-5">
                 <Dropdown
                   options={rowActions(item.studentNumber)}
                   onSelect={(option) => option.onClick(item.studentNumber)}
