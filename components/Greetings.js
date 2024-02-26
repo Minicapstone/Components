@@ -1,46 +1,42 @@
-import React, { Component } from 'react';
 
-class Greetings extends Component {
-  state = {
-    hour: null,
-    username: 'Juan',
-    currentDate: new Date(),
+import React from 'react';
+
+const Greetings = () => {
+  const currentDate = new Date();
+  const hour = currentDate.getHours();
+  const username = 'Juan';
+
+  // Format the time
+  const formattedTime = currentDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+  // Define a function to get the greeting based on the hour
+  const getGreeting = () => {
+    if (hour >= 5 && hour < 12) {
+      return 'Good morning';
+    } else if (hour >= 12 && hour < 18) {
+      return 'Good afternoon';
+    } else {
+      return 'Good evening';
+    }
   };
 
-  componentDidMount() {
-    this.getHour();
-  }
-
-  getHour = () => {
-    const date = new Date();
-    const hour = date.getHours();
-    this.setState({ hour });
-  };
-
-  render() {
-    const { username, currentDate } = this.state;
-
-    // Format the time
-    const formattedTime = currentDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-
-    return (
-      <div className="App" style={{ padding: '1rem', backgroundColor: 'white',borderRadius: '10px', }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <div className="Greetings">
-            <p className="text-3xl font-bold pr-4">
-              Hello, <span style={{ color: 'maroon' }}>Welcome {username}!👋</span>
-            </p>
-          </div>
-          <div>
-            <p className="text-3xl font-bold p-size" style={{ color: 'black' }}>
-              {currentDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })} |{' '}
-              {currentDate.toLocaleDateString('en-US', { weekday: 'long' })}, {formattedTime}
-            </p>
-          </div>
+  return (
+    <div className="p-4 bg-white rounded-lg">
+      <div className="flex justify-between">
+        <div className="Greetings">
+          <p className="text-3xl font-bold pr-4">
+            {getGreeting()}, <span className="text-maroon">Welcome {username}!👋</span>
+          </p>
+        </div>
+        <div>
+          <p className="text-3xl font-bold">
+            {currentDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })} |{' '}
+            {currentDate.toLocaleDateString('en-US', { weekday: 'long' })}, {formattedTime}
+          </p>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default Greetings;
