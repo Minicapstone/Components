@@ -6,10 +6,10 @@ const Greetings = () => {
   const hour = currentDate.getHours();
   const username = 'Juan';
 
-  // Format the time
+
   const formattedTime = currentDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
-  // Define a function to get the greeting based on the hour
+
   const getGreeting = () => {
     if (hour >= 5 && hour < 12) {
       return 'Good morning';
