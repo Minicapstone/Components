@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {BiDotsHorizontal } from "react-icons/bi";
+import {BsThreeDots } from "react-icons/bs";
 
 
 const UserListSuperAdmin = () => {
@@ -97,7 +97,7 @@ const UserListSuperAdmin = () => {
                   className="text-black text-center cursor-pointer text-4xl hover:text-red active:bg-red"
                   onClick={() => handleOpenDeleteConfirmation(index)}
                 >
-                  <BiDotsHorizontal /> {}
+                  <BsThreeDots /> {}
                 </button>
               </td>
             </tr>

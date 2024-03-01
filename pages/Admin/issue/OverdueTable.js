@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BiDotsHorizontal } from 'react-icons/bi';
+import {BsThreeDots } from "react-icons/bs";
 
 const OverdueTable = ({ onDelete }) => {
   const [isDeleteConfirmationOpen, setIsDeleteConfirmationOpen] = useState(false);
@@ -79,7 +79,7 @@ const OverdueTable = ({ onDelete }) => {
                   className="text-black text-center cursor-pointer text-4xl hover:text-red active:bg-red"
                   onClick={() => handleOpenDeleteConfirmation(index)}
                 >
-                  <BiDotsHorizontal />
+                  <BsThreeDots />
                 </button>
               </td>
             </tr>
