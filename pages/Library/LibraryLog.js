@@ -1,18 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const LibraryLogs = () => {
-
   const [showModal, setShowModal] = useState(false);
   const [studentNumber, setStudentNumber] = useState("");
   const [name, setName] = useState("");
   const [course, setCourse] = useState("");
   const [userList, setUserList] = useState([]);
-
   const [username] = useState("Admin");
 
-  const currentDate = new Date();
-  const hour = currentDate.getHours();
-  const formattedTime = currentDate.toLocaleTimeString([], {
+  const [currentTime, setCurrentTime] = useState(new Date());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const hour = currentTime.getHours();
+
+  const formattedTime = currentTime.toLocaleTimeString([], {
     hour: "2-digit",
     minute: "2-digit",
   });
@@ -26,7 +34,6 @@ const LibraryLogs = () => {
       return "Good evening";
     }
   };
-
 
   const handleOpenModal = () => {
     setShowModal(true);
@@ -47,7 +54,7 @@ const LibraryLogs = () => {
         studentNumber: parseInt(studentNumber),
         name,
         course,
-        date: currentDate.toLocaleDateString(),
+        date: currentTime.toLocaleDateString(),
         timeIn: formattedTime,
         timeOut: "",
         action: "Signed In",
@@ -80,13 +87,13 @@ const LibraryLogs = () => {
           </div>
           <div>
             <p className="text-3xl font-bold">
-              {currentDate.toLocaleDateString("en-US", {
+              {currentTime.toLocaleDateString("en-US", {
                 month: "long",
                 day: "numeric",
                 year: "numeric",
               })}{" "}
               |{" "}
-              {currentDate.toLocaleDateString("en-US", {
+              {currentTime.toLocaleDateString("en-US", {
                 weekday: "long",
               })}
               , {formattedTime}
@@ -97,7 +104,7 @@ const LibraryLogs = () => {
 
       <table className="bg-white w-full my-5 rounded-2xl px-2 py-2 shadow-xl overflow-y-auto">
         <thead>
-          <tr className="pb-2">
+          <tr className="pb-5">
             <th colSpan="7">
               <div className="flex justify-between items-center px-5 py-4">
                 <h2 className="text-2xl text-black">Library Log</h2>
@@ -153,20 +160,20 @@ const LibraryLogs = () => {
           onClick={() => setShowModal(false)}
         >
           <div
-            className="bg-peach p-8 rounded-lg shadow-2xl"
+            className="bg-peach p-12 rounded-lg shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <h2 className="text-2xl font-bold mb-4 text-center">
+            <h2 className="text-2xl font-bold mb-8 text-center">
               Student Information
             </h2>
 
-            <div className="flex justify-center">
-              <div className="flex flex-col w-76">
+            <div className="flex flex-col w-80">
+              <div className="flex flex-col w-90">
                 <label className="text-md">Student number</label>
                 <input
                   type="number"
                   placeholder="Student Number"
-                  className="shadow-lg rounded-xl text-sm px-5 py-4 mb-4 w-full"
+                  className="shadow-lg rounded-xl text-sm px-5 py-4 mb-5 w-full"
                   value={studentNumber}
                   onChange={(e) => setStudentNumber(e.target.value)}
                 />
