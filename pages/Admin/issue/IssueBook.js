@@ -19,7 +19,7 @@ const IssueBook = () => {
             <input
               type="text"
               placeholder="Search..."
-              className="py-3 px-4 bg-white rounded-xl shadow-sm focus:outline-none focus:ring-maroon focus:border-maroon sm:text-base w-full  border border-black"
+              className="py-3 px-4 bg-white rounded-3xl shadow-sm focus:outline-none focus:ring-maroon focus:border-maroon sm:text-base w-full  border border-black"
             />
           </div>
           <select
