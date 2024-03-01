@@ -1,14 +1,24 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Greetings = () => {
-  const currentDate = new Date();
-  const hour = currentDate.getHours();
+  const [currentTime, setCurrentTime] = useState(new Date());
+  const hour = currentTime.getHours();
   const username = 'Juan';
 
+  useEffect(() => {
+    const timerID = setInterval(() => tick(), 1000); // Update time every second
 
-  const formattedTime = currentDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    return function cleanup() {
+      clearInterval(timerID); // Cleanup interval on component unmount
+    };
+  });
 
+  const tick = () => {
+    setCurrentTime(new Date());
+  };
+
+  const formattedTime = currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
   const getGreeting = () => {
     if (hour >= 5 && hour < 12) {
@@ -30,8 +40,8 @@ const Greetings = () => {
         </div>
         <div>
           <p className="text-3xl font-bold">
-            {currentDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })} |{' '}
-            {currentDate.toLocaleDateString('en-US', { weekday: 'long' })}, {formattedTime}
+            {currentTime.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })} |{' '}
+            {currentTime.toLocaleDateString('en-US', { weekday: 'long' })}, {formattedTime}
           </p>
         </div>
       </div>
