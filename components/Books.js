@@ -16,69 +16,32 @@ const Books = () => {
     {
       id: 1,
       title: 'Title of the book',
-      image: <img src={myImage} alt="1.png" />, 
+      image: myImage, 
     },
     {
       id: 2,
       title: 'Title of the book',
-      image: <img src={myImage} alt="1.png" />, 
+      image: myImage, 
     },
     {
       id: 3,
       title: 'Title of the book',
-      image: <img src={myImage} alt="1.png" />,
+      image: myImage, 
     },
     {
       id: 4,
       title: 'Title of the book',
-      image: <img src={myImage} alt="1.png" />, 
+      image: myImage, 
     },
     {
       id: 5,
       title: 'Title of the book',
-      image: <img src={myImage} alt="1.png" />, 
-    },
-    {
-      id: 6,
-      title: 'Title of the book',
-      image: <img src={myImage} alt="1.png" />, 
-    },
-    {
-      id: 7,
-      title: 'Title of the book',
-      image: <img src={myImage} alt="1.png" />, 
-    },
-    {
-      id: 8,
-      title: 'Title of the book',
-      image: <img src={myImage} alt="1.png" />, 
-    },
-    {
-      id: 9,
-      title: 'Title of the book',
-      image: <img src={myImage} alt="1.png" />, 
-    },
-    {
-      id: 10,
-      title: 'Title of the book',
-      image: <img src={myImage} alt="1.png" />, 
-    },
-    {
-      id: 11,
-      title: 'Title of the book',
-      image: <img src={myImage} alt="1.png" />,
-    },
-    {
-      id: 12,
-      title: 'Title of the book',
-      image: <img src={myImage} alt="1.png" />,
+      image: myImage, 
     },
     // Add more book objects as needed
-    
   ];
 
   return (
-    
     <div className="flex">
       <div className="pd-3 pr-1 rounded-lg">
         <div
@@ -88,7 +51,7 @@ const Books = () => {
             <div className="flex overflow-x-auto whitespace-nowrap p-5">
               {books.map((book) => (
                 <div key={book.id} className="inline-block mr-4 mt-3 ml-7 w-30 text-center">
-                  {book.image}
+                  <img src={book.image} alt={book.title} className="w-full rounded-lg" />
                   <p className="">{book.title}</p>
                 </div>
               ))}
