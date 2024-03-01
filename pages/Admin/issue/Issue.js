@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import {BsThreeDots } from "react-icons/bs";
+import {BsThreeDots} from "react-icons/bs";
+import { BsFileEarmarkSpreadsheetFill } from "react-icons/bs";
 
 
 const UserListSuperAdmin = () => {
@@ -57,7 +58,7 @@ const UserListSuperAdmin = () => {
   };
 
   return (
-    <div className="px-3">
+<div className="px-0">
  <table className="bg-white w-full my-5 rounded-2xl px-2 py-2 shadow-xl overflow-y-auto">
         <thead>
             <tr className="pb-2">
@@ -151,7 +152,7 @@ const UserListSuperAdmin = () => {
                       id="studentNumber"
                       value={formData.studentNumber}
                       onChange={handleChange}
-                      className="w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full px-3 py-2 shadow-md rounded-md  focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                     />
                   </div>
                   <div>
@@ -164,7 +165,7 @@ const UserListSuperAdmin = () => {
                       id="docId"
                       value={formData.docId}
                       onChange={handleChange}
-                      className="w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full px-3 py-2 shadow-md rounded-md  focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                     />
                   </div>
                   <div>
@@ -177,7 +178,7 @@ const UserListSuperAdmin = () => {
                       id="title"
                       value={formData.title}
                       onChange={handleChange}
-                      className="w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full px-3 py-2 shadow-md rounded-md  focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                     />
                   </div>
                   <div>
@@ -190,7 +191,7 @@ const UserListSuperAdmin = () => {
                       id="issueDate"
                       value={formData.issueDate}
                       onChange={handleChange}
-                      className="w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full px-3 py-2 shadow-md rounded-md  focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                     />
                   </div>
                   <div>
@@ -203,7 +204,7 @@ const UserListSuperAdmin = () => {
                       id="returnDate"
                       value={formData.returnDate}
                       onChange={handleChange}
-                      className="w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full px-3 py-2 shadow-md rounded-md  focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                     />
                   </div>
                 </div>
@@ -222,9 +223,8 @@ const UserListSuperAdmin = () => {
       )}
       <button
         onClick={handleExport}
-        className="bg-maroon text-white py-3 px-6 rounded-full absolute bottom-8 right-8 cursor-pointer"
-      >
-        Export as Spreadsheet
+        className='bg-maroon text-white text-sm py-2 px-4 flex items-center rounded-full absolute bottom-8 right-8 cursor-pointer'>
+        <BsFileEarmarkSpreadsheetFill className="mr-1" />Export as Spreadsheet
       </button>
     </div>
   );

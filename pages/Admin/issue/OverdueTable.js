@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import {BsThreeDots } from "react-icons/bs";
+import {BsThreeDots} from "react-icons/bs";
+import { BsFileEarmarkSpreadsheetFill } from "react-icons/bs";
 
 const OverdueTable = ({ onDelete }) => {
   const [isDeleteConfirmationOpen, setIsDeleteConfirmationOpen] = useState(false);
@@ -50,7 +51,7 @@ const OverdueTable = ({ onDelete }) => {
 
 
   return (
-    <div className="px-3">
+    <div className="px-0">
       <table className="bg-white w-full my-5 rounded-2xl px-2 py-2 shadow-xl overflow-y-auto">
         <thead>
           <h2 className="text-2xl text-black font-bold px-6 pt-6">Overdue Books</h2>
@@ -112,9 +113,8 @@ const OverdueTable = ({ onDelete }) => {
       )}
       <button
         onClick={handleExport}
-        className="bg-maroon text-white py-3 px-6 rounded-full absolute bottom-8 right-8 cursor-pointer"
-      >
-        Export as Spreadsheet
+        className='bg-maroon text-white text-sm py-2 px-4 flex items-center rounded-full absolute bottom-8 right-8 cursor-pointer'>
+        <BsFileEarmarkSpreadsheetFill className="mr-1" />Export as Spreadsheet
       </button>
     </div>
   );

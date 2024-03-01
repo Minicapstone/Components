@@ -11,7 +11,7 @@ const IssueBook = () => {
   };
 
   return (
-    <div className='bg-peach h-screen'>
+    <div className='bg-peach h-screen px-3'>
       <div className="flex items-center justify-center w-full">
         <div className="bg-white my-5 px-4 py-2 rounded-xl shadow-lg flex items-center search-container w-full">
           <div className="flex items-center flex-grow">
