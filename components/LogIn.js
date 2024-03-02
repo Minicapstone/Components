@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { UserIcon, LockClosedIcon } from '@heroicons/react/solid';
+import { FaUser, FaLock } from 'react-icons/fa';
 
 const LibraryLogin = () => {
   const [username, setUsername] = useState('');
@@ -72,7 +72,8 @@ const LibraryLogin = () => {
     Username
   </label>
   <div className="flex items-center">
-    <UserIcon className="h-5 w-5 text-gray-400 absolute left-2" />
+    {/* Use the new FaUser icon */}
+    <FaUser className="h-5 w-5 text-gray-400 absolute left-2" />
     <input
       type="text"
       id="username"
@@ -91,7 +92,8 @@ const LibraryLogin = () => {
     Password
   </label>
   <div className="flex items-center">
-    <LockClosedIcon className="h-5 w-5 text-gray-400 absolute left-2" />
+    {/* Use the new FaLock icon */}
+    <FaLock className="h-5 w-5 text-gray-400 absolute left-2" />
     <input
       type="password"
       id="password"
@@ -103,7 +105,6 @@ const LibraryLogin = () => {
     />
   </div>
 </div>
-
             {/* Forget Password */}
             <div className="text-sm text-red flex justify-end hover:text-blue mt-12 ">
               <button type="button" onClick={handleForgotPassword}>
